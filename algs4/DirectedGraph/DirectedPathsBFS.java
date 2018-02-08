@@ -52,7 +52,7 @@ public class DirectedPathsBFS {
 
 		while(!queue.isEmpty()){
 			int v=queue.dequeue();
-			for(int w:G.adjcent(v)){
+			for(int w:G.adj(v)){
 				if(!marked[w]){
 					marked[w]=true;
 					edgeTo[w]=v;
@@ -85,7 +85,7 @@ public class DirectedPathsBFS {
 
 		while(!queue.isEmpty()){
 			int v=queue.dequeue();
-			for(int w:G.adjcent(v)){
+			for(int w:G.adj(v)){
 				if(!marked[w]){
 					marked[w]=true;
 					edgeTo[w]=v;

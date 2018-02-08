@@ -51,7 +51,7 @@ public class DepthFirstOrder {
 		marked[v]=true;
 		preorder.enqueue(v);
 		pre[v]=precount++;
-		for(int w:G.adjcent(v)){
+		for(int w:G.adj(v)){
 			if(!marked[w]){
 				dfs(G,w);
 			}

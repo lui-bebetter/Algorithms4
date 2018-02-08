@@ -45,7 +45,7 @@ public class DirectedEulerianCycle {
 		// create local view of adjacency lists, to iterate one vertex at a time
 		Iterator<Integer>[] adj=(Iterator<Integer>[]) new Iterator[G.V()];
 		for(int i=0;i<G.V();i++){
-			adj[i]=G.adjcent(i).iterator();
+			adj[i]=G.adj(i).iterator();
 		}
 
 		//initiate the source with a non-isolated vertex
@@ -164,10 +164,10 @@ public class DirectedEulerianCycle {
 		StdRandom.shuffle(perm);
 		Digraph G5 = new Digraph(V);
 		for (int v = 0; v < H1.V(); v++)
-			for (int w : H1.adjcent(v))
+			for (int w : H1.adj(v))
 				G5.addEdge(perm[v], perm[w]);
 		for (int v = 0; v < H2.V(); v++)
-			for (int w : H2.adjcent(v))
+			for (int w : H2.adj(v))
 				G5.addEdge(perm[V/2 + v], perm[V/2 + w]);
 		unitTest(G5, "Union of two disjoint cycles");
 

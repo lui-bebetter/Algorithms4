@@ -10,7 +10,6 @@ package algs4.DirectedGraph.WordNet;
 
 import algs4.DirectedGraph.Digraph;
 import algs4.queue.LinkedQueue;
-import algs4.stack.LinkedStack;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -82,7 +81,7 @@ public class DeluxeBFS {
 			}
 
 			//visit adjacent vertices
-			for (int k : G.adjcent(j)) {
+			for (int k : G.adj(j)) {
 				if (marked[k] == 0) {
 					marked[k] = marked[j];
 
@@ -174,7 +173,7 @@ public class DeluxeBFS {
 			}
 
 			//visit adjacent vertices
-			for (int k : G.adjcent(j)) {
+			for (int k : G.adj(j)) {
 				if (marked[k] == 0) {
 					marked[k] = marked[j];
 

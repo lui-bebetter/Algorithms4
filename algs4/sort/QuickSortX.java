@@ -44,7 +44,7 @@ public class QuickSortX{
             return;
         }
 
-        //gaurantee the first element mear the middle after partition depend on Tukey's ninther
+        //guarantee the first element near the middle after partition depend on Tukey's ninther
         int median;
         if(n<=MEDIAN_OF_3_CUTOFF){
             median=medianOf3(a,lo,lo+n/2,hi);

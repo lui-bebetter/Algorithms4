@@ -47,7 +47,7 @@ public class DirectedCycle {
 	private void dfs(Digraph G,int s){
 		marked[s]=true;
 		onstack[s]=true;//add to the processing stack
-		for(int v:G.adjcent(s)){
+		for(int v:G.adj(s)){
 			if(cycle!=null) return;
 			if(!marked[v]){
 				edgeTo[v]=s;

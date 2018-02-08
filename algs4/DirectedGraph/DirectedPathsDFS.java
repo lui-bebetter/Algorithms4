@@ -94,7 +94,7 @@ public class DirectedPathsDFS {
 		 * @Author: luibebetter
 		 *********************************/
 		marked[s]=true;
-		for(int w:G.adjcent(s)){
+		for(int w:G.adj(s)){
 			if(!marked[w]){
 				edgeTo[w]=s;
 				dfs(G,w);

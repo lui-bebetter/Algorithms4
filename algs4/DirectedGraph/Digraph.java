@@ -12,7 +12,6 @@
 package algs4.DirectedGraph;
 
 import algs4.UndirectedGraph.Bag;
-import algs4.UndirectedGraph.Graph;
 
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;
@@ -77,7 +76,7 @@ public class Digraph {
   public Digraph(Digraph G){
     this(G.V());
     for(int i=0;i<G.V();i++){
-      for(int j:G.adjcent(i))
+      for(int j:G.adj(i))
         addEdge(i,j);
     }
   }
@@ -120,7 +119,7 @@ public class Digraph {
     return V;
   }
 
-  public Iterable<Integer> adjcent(int v){
+  public Iterable<Integer> adj(int v){
     /********************************
      * Description: return a iterable object that iterating over all the
        adjcent vertices for {@code v}
@@ -167,7 +166,7 @@ public class Digraph {
      *********************************/
     Digraph reverse=new Digraph(V);
     for(int i=0;i<V;i++){
-      for(int w:adjcent(i)){
+      for(int w: adj(i)){
         reverse.addEdge(w,i);
       }
     }

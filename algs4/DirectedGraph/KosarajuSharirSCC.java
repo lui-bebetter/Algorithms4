@@ -48,7 +48,7 @@ public class KosarajuSharirSCC {
 	private void dfs(Digraph G, int v){
 		marked[v]=true;
 		id[v]=count;
-		for(int w:G.adjcent(v)){
+		for(int w:G.adj(v)){
 			if(!marked[w]){
 				dfs(G,w);
 			}
