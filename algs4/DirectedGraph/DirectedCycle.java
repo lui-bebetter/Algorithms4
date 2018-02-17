@@ -8,6 +8,8 @@
 
 package algs4.DirectedGraph;
 
+import algs4.EdgeWeightedDigraph.DirectedEdge;
+import algs4.EdgeWeightedDigraph.EdgeWeightedDigraph;
 import algs4.stack.LinkedStack;
 
 import java.io.FileInputStream;
@@ -43,6 +45,20 @@ public class DirectedCycle {
 			if(!marked[s]&&cycle==null) dfs(G,s);
 	}
 
+	/**
+	 * Determines whether the Edge-Weighted-Digraph {@code G} has a directed cycle and, if so,
+	 * finds such a cycle.
+	 * @param G the digraph
+	 */
+	public DirectedCycle(EdgeWeightedDigraph G){
+		if(G==null) throw new IllegalArgumentException("Initializes DirectedCycle with null arguments");
+		marked=new boolean[G.V()];
+		edgeTo=new int [G.V()];
+		onstack=new boolean[G.V()];
+		for(int s=0;s<G.V();s++)
+			if(!marked[s]&&cycle==null) dfs(G,s);
+	}
+
 	//do dfs
 	private void dfs(Digraph G,int s){
 		marked[s]=true;
@@ -61,9 +77,34 @@ public class DirectedCycle {
 				}
 				cycle.push(x);
 				cycle.push(s);
+				return;
 			}
 		}
 		onstack[s]=false;//delete from the processing stack
+	}
+
+	//do dfs in the edge-weighted-graph
+	private void dfs(EdgeWeightedDigraph G,int v){
+		marked[v]=true;
+		onstack[v]=true;
+		for(DirectedEdge e:G.adj(v)){
+			int w=e.to();
+			if(!marked[w]){
+				edgeTo[w]=v;
+				dfs(G,w);
+			}else if(onstack[w]){
+				cycle=new LinkedStack<>();
+				cycle.push(w);
+				int tmp=v;
+				while(edgeTo[tmp]!=w){
+					cycle.push(tmp);
+					tmp=edgeTo[tmp];
+				}
+				cycle.push(tmp);
+				return;
+			}
+		}
+		onstack[v]=false;
 	}
 
 	public boolean hasCycle(){

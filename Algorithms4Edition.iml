@@ -7,14 +7,17 @@
       <sourceFolder url="file://$MODULE_DIR$/algs4/RandomizedQueue" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/algs4/HashTable/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$" isTestSource="false" />
+      <excludeFolder url="file://$MODULE_DIR$/algs4/EdgeWeightedDigraph/SeamCarving/seam-testing" />
       <excludeFolder url="file://$MODULE_DIR$/algs4/RandomizedQueue" />
       <excludeFolder url="file://$MODULE_DIR$/algs4/lib-algs4" />
       <excludeFolder url="file://$MODULE_DIR$/algs4/programming_assignment" />
       <excludeFolder url="file://$MODULE_DIR$/algs4/programming_assignment/8_puzzle" />
       <excludeFolder url="file://$MODULE_DIR$/algs4/programming_assignment/KdTree" />
+      <excludeFolder url="file://$MODULE_DIR$/algs4/programming_assignment/WordNet" />
       <excludeFolder url="file://$MODULE_DIR$/algs4/programming_assignment/pattern_recognition" />
       <excludeFolder url="file://$MODULE_DIR$/algs4/programming_assignment/percolation" />
     </content>
+    <content url="file://$MODULE_DIR$/algs4/programming_assignment/WordNet" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>

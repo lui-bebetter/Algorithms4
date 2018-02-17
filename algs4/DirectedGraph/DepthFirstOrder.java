@@ -9,6 +9,8 @@
 
 package algs4.DirectedGraph;
 
+import algs4.EdgeWeightedDigraph.DirectedEdge;
+import algs4.EdgeWeightedDigraph.EdgeWeightedDigraph;
 import algs4.queue.LinkedQueue;
 import algs4.stack.LinkedStack;
 
@@ -47,6 +49,17 @@ public class DepthFirstOrder {
 		}
 	}
 
+	public DepthFirstOrder(EdgeWeightedDigraph G){
+		if(G==null) throw new IllegalArgumentException("Initiating DepthFirstOrder with null digraph");
+		int V=G.V();
+		pre=new int[V];
+		post=new int[V];
+		marked=new boolean[V];
+		for(int i=0;i<V;i++) {
+			if(!marked[i]) dfs(G,i);
+		}
+	}
+
 	private void dfs(Digraph G,int v){
 		marked[v]=true;
 		preorder.enqueue(v);
@@ -59,6 +72,21 @@ public class DepthFirstOrder {
 		postorder.enqueue(v);
 		reversePostorder.push(v);
 		post[v]=postcount++;
+	}
+
+	private void dfs(EdgeWeightedDigraph G, int v){
+		marked[v]=true;
+		preorder.enqueue(v);
+		pre[v]=precount++;
+		for(DirectedEdge e:G.adj(v)){
+			int w=e.to();
+			if(!marked[w]){
+				dfs(G,w);
+			}
+		}
+		postorder.enqueue(v);
+		post[v]=postcount++;
+		reversePostorder.push(v);
 	}
 
 	public Iterable<Integer> post(){
