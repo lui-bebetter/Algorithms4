@@ -41,7 +41,7 @@ public class SeparateChainingHashST<Key,Value>{
 	public SeparateChainingHashST(int capacity){
 		this.m=capacity;
 		this.size=0;
-		st=(Node[]) Array.newInstance(Node.class,INIT_CAPACITY);
+		st=(Node[]) Array.newInstance(Node.class,capacity);
 	}
 
 	public void put(Key key, Value value){

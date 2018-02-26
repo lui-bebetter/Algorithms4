@@ -53,7 +53,7 @@ public class LinearProbingHashST<Key,Value> {
 		if(key==null||value==null) throw new IllegalArgumentException("calls put(Key,Value) with null arguments");
 
 		// double table size if 50% full
-		if(size>length/2) resize(2*length);
+		if(size>=length/2) resize(2*length);
 		int i=hash(key);
 		while(keys[i]!=null){
 			if(keys[i].equals(key)){
@@ -121,7 +121,7 @@ public class LinearProbingHashST<Key,Value> {
 		return size()==0;
 	}
 
-	public boolean iscontains(Key key){
+	public boolean contains(Key key){
 		if(key==null) throw new IllegalArgumentException("calls iscontains() with null arguments");
 		return get(key)!=null;
 	}
@@ -143,8 +143,9 @@ public class LinearProbingHashST<Key,Value> {
 		 *********************************/
 		assert capacity>size;
 		LinearProbingHashST<Key,Value> tmp=new LinearProbingHashST<Key,Value>(capacity);
-		for(int i=0;i<length &&keys[i]!=null;i++)
-			tmp.put(keys[i],values[i]);
+		for(int i=0;i<length;i++){
+			if(keys[i]!=null) tmp.put(keys[i],values[i]);
+		}
 		this.keys=tmp.keys;
 		this.values=tmp.values;
 		this.size=tmp.size;
@@ -163,7 +164,7 @@ public class LinearProbingHashST<Key,Value> {
 	}
 
 	public static void main(String[] args) {
-		SeparateChainingHashST<String, Integer> st = new SeparateChainingHashST<String, Integer>();
+		LinearProbingHashST<String, Integer> st = new LinearProbingHashST<>();
 		Scanner in =new Scanner(System.in);
 		for (int i = 0; in.hasNext(); i++) {
 			String key = in.next();
