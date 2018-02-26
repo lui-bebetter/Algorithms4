@@ -7,8 +7,6 @@
 ******************************************************************/
 
 package algs4.sort;
-import java.util.Comparator;
-import algs4.sort.Sort;
 import java.util.regex.Pattern;
 import java.util.Scanner;
 import java.util.Random;
@@ -110,7 +108,7 @@ public class QuickSort{
         if(less(a[hi],a[median])){
             if(less(a[hi],a[min])) median=min;
             else median=hi;
-        } 
+        }
         return median;
     }
 
@@ -161,6 +159,9 @@ public class QuickSort{
         for (int i=0;i<s.length;i++) a[i]=Double.parseDouble(s[i]);
         QuickSort.sort(a);
         QuickSort.show(a);
+        for (int i = 0; i < a.length; i++) {
+            System.out.println("select "+i+"th: "+QuickSort.select(a,i));
+        }
     }
 
 }
