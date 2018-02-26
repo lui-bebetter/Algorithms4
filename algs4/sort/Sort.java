@@ -55,7 +55,8 @@ public class Sort{
     *Insertion sort:during each i iteration form 0 to n-1,putting the a[i]
     to the right position.
 
-    *compares~n*n/2 at most,exchanges=compares+n-1,memory~n
+    *exchanges=number of inversions(pair of keys out of order) in the array,
+     compares=exchangess+n-1.
     **********************************************************************/
     //using natural order for sorting
     public static void insertionSort(Comparable [] a){
@@ -185,7 +186,7 @@ public class Sort{
     /********************************************************************
     *Shell sort:increment sequence 3*x+1
 
-    *in general, better than insertion sort.
+    *in general, better than insertion sort.Compares~N^3/2
     ********************************************************************/
 
     //using natural order
