@@ -68,6 +68,17 @@ public final class StdRandom {
 		}
 	}
 
+	//shuffle an object array
+	public static void shuffle(Object []a){
+		validateNotNull(a);
+		for (int i = 0; i < a.length; i++) {
+			int j=uniform(i+1);
+			Object tmp=a[j];
+			a[j]=a[i];
+			a[i]=tmp;
+		}
+	}
+
 	private static void  validateNotNull(Object x){
 		if (x == null) {
 			throw new IllegalArgumentException("argument is null");

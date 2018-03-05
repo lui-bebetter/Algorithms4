@@ -5,8 +5,10 @@
  *Description: A symbol table implemented using a left-leaning red-black BST.
   This is the 2-3 version.
 
- *red-black tree:all path from root to leaf have same black links
- *Costs: search、delete、insert operations~2nlogn in worst case,1.00logn in general
+ *red-black tree:all path from root to leaf have same black links:excluding the red link,
+  RedBST always is a perfect balanced tree, only at the time when the red link was put to
+  the root,the depth increments by 1(at this situation, all link was black).
+ *Costs: search、delete、insert operations~2logn in worst case,1.00logn in general
  ***********************************************************************************/
 
 package algs4.BinarySearchTree;
@@ -160,7 +162,7 @@ public class RedBlackBST<Key extends Comparable<Key>,Value> {
 		 * @Author: luibebetter
 		 *********************************/
 		if(isEmpty()) throw new NoSuchElementException("calls delMin() with empty BST.");
-		if(!isRed(root.left)&&!isRed(root.right)) root.color=RED;//not important
+		if(!isRed(root.left)&&!isRed(root.right)) root.color=RED;//flipcolors
 		root=delMin(root);
 		//ensure the root is always Black
 		if(!isEmpty()) root.color=BLACK;
