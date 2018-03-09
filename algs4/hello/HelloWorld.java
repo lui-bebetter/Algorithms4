@@ -21,7 +21,9 @@ public class HelloWorld {
     }*/
     int [][]a={{1,2,3},{4,5,6}};
     int []b=a[0];
-    System.out.println("12345".substring(0));
+    StringBuilder s=new StringBuilder();
+    s.append(65);
+    System.out.println(s);
   }
 
 }
