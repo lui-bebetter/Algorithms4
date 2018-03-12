@@ -9,6 +9,7 @@
       <sourceFolder url="file://$MODULE_DIR$" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/algs4/EdgeWeightedDigraph/SeamCarving/seam-testing" />
       <excludeFolder url="file://$MODULE_DIR$/algs4/RandomizedQueue" />
+      <excludeFolder url="file://$MODULE_DIR$/algs4/Trie/Boggle/boggle" />
       <excludeFolder url="file://$MODULE_DIR$/algs4/lib-algs4" />
       <excludeFolder url="file://$MODULE_DIR$/algs4/programming_assignment" />
       <excludeFolder url="file://$MODULE_DIR$/algs4/programming_assignment/8_puzzle" />

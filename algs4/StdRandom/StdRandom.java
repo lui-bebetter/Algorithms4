@@ -79,6 +79,41 @@ public final class StdRandom {
 		}
 	}
 
+
+	/**
+	 * Returns a random integer from the specified discrete distribution.
+	 *
+	 * @param  probabilities the probability of occurrence of each integer
+	 * @return a random integer from a discrete distribution:
+	 *         {@code i} with probability {@code probabilities[i]}
+	 * @throws IllegalArgumentException if {@code probabilities} is {@code null}
+	 * @throws IllegalArgumentException if sum of array entries is not (very nearly) equal to {@code 1.0}
+	 * @throws IllegalArgumentException unless {@code probabilities[i] >= 0.0} for each index {@code i}
+	 */
+	public static int discrete(double[] probabilities) {
+		if (probabilities == null) throw new IllegalArgumentException("argument array is null");
+		double EPSILON = 1E-14;
+		double sum = 0.0;
+		for (int i = 0; i < probabilities.length; i++) {
+			if (!(probabilities[i] >= 0.0))
+				throw new IllegalArgumentException("array entry " + i + " must be nonnegative: " + probabilities[i]);
+			sum += probabilities[i];
+		}
+		if (sum > 1.0 + EPSILON || sum < 1.0 - EPSILON)
+			throw new IllegalArgumentException("sum of array entries does not approximately equal 1.0: " + sum);
+
+		// the for loop may not return a value when both r is (nearly) 1.0 and when the
+		// cumulative sum is less than 1.0 (as a result of floating-point roundoff error)
+		while (true) {
+			double r = uniform();
+			sum = 0.0;
+			for (int i = 0; i < probabilities.length; i++) {
+				sum = sum + probabilities[i];
+				if (sum > r) return i;
+			}
+		}
+	}
+
 	private static void  validateNotNull(Object x){
 		if (x == null) {
 			throw new IllegalArgumentException("argument is null");
